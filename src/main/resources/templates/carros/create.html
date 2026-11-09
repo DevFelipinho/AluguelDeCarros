@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org"
+    layout:decorate="~{layout/layoutpadrao}">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <title>Cadastro de Carro</title>
+</head>
+
+<body>
+    <!-- conteudo principal -->
+    <main layout:fragment="conteudo" th:fragment="formulario" id="main" class="flex flex-col align-middle w-full m-10">
+
+        <div class="w-full max-w-3xl ms-8">
+            <div class="mb-8">
+                <a th:hx-get="@{/carros}" hx-target="#main" hx-push-url="true" class="cursor-pointer text-sm text-blue-600 hover:underline flex items-center gap-1 mb-2">
+                    &larr; Voltar para a lista de carros
+                </a>
+                <h1 class="text-2xl md:text-3xl font-bold text-gray-800">Cadastro de Carro</h1>
+                <p class="text-sm text-gray-500">Preencha os dados abaixo para adicionar um veículo à frota</p>
+            </div>
+
+            <form th:hx-post="@{/carros}" th:object="${carroCreateRequest}" class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm">
+
+                <div th:replace="~{carros/fragments/carro_inputs :: campos}"></div>
+
+                <div class="mt-8 pt-6 border-t border-gray-200 flex items-center gap-4">
+                    <button type="submit"
+                        class="py-3 px-6 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg bg-blue-600 text-white hover:bg-blue-700 shadow-sm focus:outline-none transition">
+                        Cadastrar Veículo
+                    </button>
+                    <a th:hx-get="@{/carros}" hx-target="#main" hx-push-url="true"
+                        class="cursor-pointer py-3 px-6 inline-flex items-center text-sm font-medium rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-100 transition">
+                        Cancelar
+                    </a>
+                </div>
+
+            </form>
+        </div>
+
+    </main>
+    <!-- !conteudo principal -->
+</body>
+
+</html>

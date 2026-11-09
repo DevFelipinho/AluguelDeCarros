@@ -7,6 +7,8 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -18,6 +20,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import web.trabalhodaw1.common.enums.Status;
 
 @Entity
 @Table(name = "carro")
@@ -68,5 +71,10 @@ public class Carro implements Serializable {
     @Column(nullable = false)
     @ToString.Include
     private boolean disponivel = true;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    @ToString.Include
+    private Status status = Status.ATIVO;
 
 }

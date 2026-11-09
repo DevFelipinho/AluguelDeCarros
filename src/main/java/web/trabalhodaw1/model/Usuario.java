@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import web.trabalhodaw1.model.PapelUsuario;
+import web.trabalhodaw1.common.enums.PapelUsuario;
 
 @Entity
 @Table(name = "usuario")

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:fragment="campos">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+            <div th:replace="~{components/forms :: inputTexto(
+                    textoLabel='Placa (ex: ABC-1234 ou ABC1D23)', 
+                    nomeAtributo='placa',
+                    isValidado=true)}"></div>
+        </div>
+
+        <div>
+            <div th:replace="~{components/forms :: inputTexto(
+                    textoLabel='Marca (ex: Chevrolet, Fiat, Toyota)', 
+                    nomeAtributo='marca',
+                    isValidado=true)}"></div>
+        </div>
+
+        <div>
+            <div th:replace="~{components/forms :: inputTexto(
+                    textoLabel='Modelo (ex: Onix 1.0, Corolla XEi)', 
+                    nomeAtributo='modelo',
+                    isValidado=true)}"></div>
+        </div>
+
+        <div>
+            <div th:replace="~{components/forms :: inputTexto(
+                    textoLabel='Cor (ex: Branco, Preto, Prata)', 
+                    nomeAtributo='cor',
+                    isValidado=true)}"></div>
+        </div>
+
+        <div>
+            <div th:replace="~{components/forms :: inputDinheiro(
+                    textoLabel='Valor da Diária (R$)', 
+                    nomeAtributo='valorDiaria',
+                    isValidado=true)}"></div>
+        </div>
+
+        <div class="flex items-center pt-8">
+            <div th:replace="~{components/forms :: checkboxSimples(
+                    textoLabel='Veículo disponível para locação', 
+                    nomeAtributo='disponivel',
+                    isSwitch=true,
+                    isValidado=true)}"></div>
+        </div>
+    </div>
+
+</th:block>
+
+</html>
